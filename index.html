@@ -24,7 +24,7 @@
                 margin-left: auto;
                 margin-right: auto;
                 border-bottom: 20px;
-                background-color: cornflowerblue;
+                background-color: rgb(154, 139, 179);
                 border-radius: 10px;
             }
             .button{
@@ -75,40 +75,61 @@
             }
 
         </style>
+    
+    <script type="text/javascript">
+        function handleclick(val)
+        {
+           const inputBox = document.getElementById("calculator-screen");
+           inputBox.value = (inputBox.value + val);
+        }
+        function calculate()
+        {
+            const inputBox = document.getElementById("calculator-screen");
+            const ans = eval(inputBox.value);
+            inputBox.value = ans;
+
+        }
+        function clearscreen()
+            {
+                const inputBox = document.getElementById("calculator-screen");
+                inputBox.value = "";
+            }
+        
+    </script>
     </head>
     <body>
         <div class="calculator">
-            <p class="brandname"> RTC CALCULATOR </p>
-                <input type="text" class="screen"/>
+            <p class="brandname"> RTC </p>
+                <input type="text" class="screen" id="calculator-screen"/>
                 <br>
                 <br>
             <div class="button-c">
-                <button class="b-c BG">AC</button>
+                <button class="b-c BG" onclick="clearscreen()">AC</button>
             </div>
         
         <div class="button">
-            <button class="b">7 </button>
-            <button class="b">8</button>
-            <button class="b">9</button>
-            <button class="b bg">/</button>
+            <button class="b" onclick="handleclick(7)">7 </button>
+            <button class="b" onclick="handleclick(8)">8</button>
+            <button class="b" onclick="handleclick(9)">9</button>
+            <button class="b bg" onclick="handleclick('/')">/</button>
         </div>
         <div class="button">
-            <button class="b">4</button>
-            <button class="b">5</button>
-            <button class="b">6</button>
-            <button class="b bg">*</button>
+            <button class="b"onclick="handleclick(4)">4</button>
+            <button class="b"onclick="handleclick(5)">5</button>
+            <button class="b" onclick="handleclick(6)">6</button>
+            <button class="b bg" onclick="handleclick('*')">*</button>
         </div>
         <div class="button">
-            <button class="b">1</button>
-            <button class="b">2</button>
-            <button class="b">3</button>
-            <button class="b bg">-</button>
+            <button class="b" onclick="handleclick(1)">1</button>
+            <button class="b" onclick="handleclick(2)">2</button>
+            <button class="b" onclick="handleclick(3)">3</button>
+            <button class="b bg" onclick="handleclick('-')">-</button>
         </div>
         <div class="button">
-            <button class="b">0</button>
-            <button class="b bg">.</button>
-            <button class="b bg">=</button>
-            <button class="b bg">+</button>
+            <button class="b" onclick="handleclick(0)">0</button>
+            <button class="b bg" onclick="handleclick('.')">.</button>
+            <button class="b bg" onclick="calculate('=')">=</button>
+            <button class="b bg" onclick="handleclick('+')">+</button>
         </div>
         </div>
     </body>
